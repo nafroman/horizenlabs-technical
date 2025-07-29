@@ -2,7 +2,7 @@
 // Entry point for Express app
 require('dotenv').config();
 const express = require('express');
-const connect = require('mongodb-ci');
+const connect = require('mongodb-cd');
 const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
