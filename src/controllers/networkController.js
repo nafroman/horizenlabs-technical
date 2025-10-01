@@ -1,12 +1,9 @@
-// Controller for network logic (bonus)
-const { ethers } = require('ethers');
-
-const provider = new ethers.JsonRpcProvider(process.env.ETH_RPC_URL || 'https://rpc.ankr.com/eth_goerli');
+const { getNetwork } = require('../services/ethereumService');
 
 exports.getNetwork = async (req, res) => {
 	try {
-		const network = await provider.getNetwork();
-		res.json({ chainId: network.chainId, name: network.name });
+		const network = await getNetwork();
+		res.json(network);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}

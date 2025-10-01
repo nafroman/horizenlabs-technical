@@ -1,2 +1,8 @@
-// Placeholder for GET /token-balance/:address/:tokenAddress route (bonus)
-// Implement logic using ethers.js to fetch ERC-20 token balance
+const express = require('express');
+const { getTokenBalance } = require('../controllers/tokenBalanceController');
+
+const router = express.Router();
+
+router.get('/:address/:tokenAddress', getTokenBalance);
+
+module.exports = router;

@@ -1,2 +1,8 @@
-// Placeholder for GET /balance/:address route
-// Implement logic using ethers.js to fetch ETH balance
+const express = require('express');
+const { getBalance } = require('../controllers/balanceController');
+
+const router = express.Router();
+
+router.get('/:address', getBalance);
+
+module.exports = router;

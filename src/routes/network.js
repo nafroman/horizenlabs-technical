@@ -1,2 +1,8 @@
-// Placeholder for GET /network route (bonus)
-// Implement logic using ethers.js to fetch chain ID and network name
+const express = require('express');
+const { getNetwork } = require('../controllers/networkController');
+
+const router = express.Router();
+
+router.get('/', getNetwork);
+
+module.exports = router;

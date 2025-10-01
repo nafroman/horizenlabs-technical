@@ -1,2 +1,8 @@
-// Placeholder for POST /send route
-// Implement logic using ethers.js to send ETH transaction
+const express = require('express');
+const { sendTransaction } = require('../controllers/sendController');
+
+const router = express.Router();
+
+router.post('/', sendTransaction);
+
+module.exports = router;
