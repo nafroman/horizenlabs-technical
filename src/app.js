@@ -9,6 +9,7 @@ const balanceRoute = require('./routes/balance');
 const sendRoute = require('./routes/send');
 const networkRoute = require('./routes/network');
 const tokenBalanceRoute = require('./routes/tokenBalance');
+const transactionsRoute = require('./routes/transactions');
 
 const app = express();
 
@@ -19,10 +20,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Database connection
+require('./db');
+
 app.use('/balance', balanceRoute);
 app.use('/send', sendRoute);
 app.use('/network', networkRoute);
 app.use('/token-balance', tokenBalanceRoute);
+app.use('/transactions', transactionsRoute);
 
 app.get('/', (req, res) => {
   res.send('Ethereum Blockchain Service API');
